@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stages of Life</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="submit"] {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 200px;
+    }
+    input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+    }
+    p {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 18px;
+        color: #007bff;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Stages of Life</h1>
+    <form id="infoForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <p id="output"></p>
+</div>
+
+<script>
+    document.getElementById("infoForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var personName = document.getElementById("name").value;
+        var age = parseInt(document.getElementById("age").value);
+        var message;
+
+        if (age < 2) {
+            message = personName + " is a baby.";
+        } else if (age >= 2 && age < 4) {
+            message = personName + " is a toddler.";
+        } else if (age >= 4 && age < 13) {
+            message = personName + " is a kid.";
+        } else if (age >= 13 && age < 20) {
+            message = personName + " is a teenager.";
+        } else if (age >= 20 && age < 65) {
+            message = personName + " is an adult.";
+        } else {
+            message = personName + " is an elder.";
+        }
+
+        document.getElementById("output").innerText = message;
+    });
+</script>
+
+</body>
+</html>
